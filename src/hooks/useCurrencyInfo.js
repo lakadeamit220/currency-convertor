@@ -14,6 +14,7 @@ function useCurrencyInfo(currency) {
 
     if (cachedData && cacheTime && Date.now() - cacheTime < cacheValidDuration) {
       setData(JSON.parse(cachedData));
+      // console.log(cachedData);
       setLastUpdated(new Date(parseInt(cacheTime)));
       return;
     }
