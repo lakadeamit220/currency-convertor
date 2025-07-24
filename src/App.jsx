@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import InputBox from "./components/InputBox";
 import useCurrencyInfo from "./hooks/useCurrencyInfo";
+import "./App.css";
 
 function App() {
   const [amount, setAmount] = useState("");
@@ -35,7 +36,10 @@ function App() {
   };
 
   useEffect(() => {
+    // console.log(currencyInfo);
     if (currencyInfo[to] && amount && !isNaN(amount) && amount >= 0) {
+      //console.log(currencyInfo[to]);
+
       setConvertedAmount((amount * currencyInfo[to]).toFixed(2));
     } else {
       setConvertedAmount("");
@@ -133,32 +137,6 @@ function App() {
             {currencySymbols[to] || to} {convertedAmount} {to}
           </p>
         )}
-        <style jsx>{`
-          .animate-fade-in {
-            animation: fadeIn 0.5s ease-in;
-          }
-          .animate-spin-once {
-            animation: spin 0.3s linear;
-          }
-          @keyframes fadeIn {
-            from {
-              opacity: 0;
-              transform: translateY(10px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-          @keyframes spin {
-            from {
-              transform: rotate(0deg);
-            }
-            to {
-              transform: rotate(360deg);
-            }
-          }
-        `}</style>
       </div>
     </div>
   );
