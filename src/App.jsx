@@ -16,6 +16,7 @@ function App() {
     loading,
     lastUpdated,
   } = useCurrencyInfo(from);
+
   const options = Object.keys(currencyInfo);
 
   // Currency symbol mapping
@@ -36,7 +37,7 @@ function App() {
   };
 
   useEffect(() => {
-    // console.log(currencyInfo);
+    //console.log(currencyInfo);
     if (currencyInfo[to] && amount && !isNaN(amount) && amount >= 0) {
       //console.log(currencyInfo[to]);
 
@@ -122,7 +123,7 @@ function App() {
             currencyOptions={options}
             onCurrencyChange={(currency) => setTo(currency)}
             selectCurrency={to}
-            amountDisable
+            amountDisable // Shorthand for amountDisable={true}
             className="animate-fade-in"
           />
         </div>
